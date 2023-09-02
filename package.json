@@ -2,14 +2,15 @@
   "name": "acorn-parser",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "author": "alex-gudkov",
+  "private": true,
+  "license": "UNLICENSED",
+  "main": "./src/main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./src/main.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "acorn": "^8.10.0"
-  }
+  },
+  "devDependencies": {}
 }
