@@ -1,17 +1,20 @@
 {
-  "name": "acorn-parser",
+  "name": "acorn-js-parser",
   "version": "1.0.0",
   "description": "",
   "author": "alex-gudkov",
   "private": true,
   "license": "UNLICENSED",
-  "main": "./src/main.js",
-  "type": "module",
   "scripts": {
-    "start": "node ./src/main.js"
+    "start": "ts-node ./src/main.ts"
   },
   "dependencies": {
     "acorn": "^8.10.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@types/acorn": "^6.0.0",
+    "@types/node": "^20.5.8",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2"
+  }
 }
