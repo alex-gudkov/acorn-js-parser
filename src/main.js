@@ -18,7 +18,7 @@ async function main() {
     // write output file
     const outputFileName = 'script-ast.json';
     const outputFilePath = resolve('src', 'output', outputFileName);
-    const outputFileData = JSON.stringify(abstractSyntaxTree) + '\n';
+    const outputFileData = JSON.stringify(abstractSyntaxTree, null, '  ') + '\n';
 
     await writeFile(outputFilePath, outputFileData, { encoding: 'utf8' });
   } catch (error) {
