@@ -16,7 +16,7 @@ async function main() {
     });
 
     // write output file
-    const outputFileName = 'script-ast.json';
+    const outputFileName = 'script.ast';
     const outputFilePath = resolve('src', 'output', outputFileName);
     const outputFileData = JSON.stringify(abstractSyntaxTree, null, '  ') + '\n';
 
