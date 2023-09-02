@@ -6,12 +6,15 @@
   "private": true,
   "license": "UNLICENSED",
   "main": "./src/main.js",
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
-    "start": "node ./src/main.js"
+    "start": "tsc ./src/main.ts && node ./src/main.js && rm ./src/main.js"
   },
   "dependencies": {
     "acorn": "^8.10.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@types/node": "^20.5.8",
+    "typescript": "^5.2.2"
+  }
 }
