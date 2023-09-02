@@ -6,7 +6,7 @@ async function main() {
   try {
     // read input file
     const inputFileName = 'script.js';
-    const inputFilePath = resolve('src', 'input', inputFileName);
+    const inputFilePath = resolve('input', inputFileName);
     const inputFileData = await readFile(inputFilePath, { encoding: 'utf8' });
 
     // parsed result is AST (abstract syntax tree) object as specified by ESTree spec
@@ -17,7 +17,7 @@ async function main() {
 
     // write output file
     const outputFileName = 'script.ast';
-    const outputFilePath = resolve('src', 'output', outputFileName);
+    const outputFilePath = resolve('output', outputFileName);
     const outputFileData = JSON.stringify(abstractSyntaxTree, null, '  ') + '\n';
 
     await writeFile(outputFilePath, outputFileData, { encoding: 'utf8' });
