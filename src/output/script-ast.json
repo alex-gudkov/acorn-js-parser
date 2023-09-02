@@ -1,50 +1,50 @@
 {
   "type": "Program",
   "start": 0,
-  "end": 21,
+  "end": 23,
   "body": [
     {
       "type": "VariableDeclaration",
       "start": 0,
-      "end": 20,
+      "end": 22,
       "declarations": [
         {
           "type": "VariableDeclarator",
-          "start": 4,
-          "end": 10,
+          "start": 6,
+          "end": 12,
           "id": {
             "type": "Identifier",
-            "start": 4,
-            "end": 5,
+            "start": 6,
+            "end": 7,
             "name": "x"
           },
           "init": {
             "type": "Literal",
-            "start": 8,
-            "end": 10,
+            "start": 10,
+            "end": 12,
             "value": 10,
             "raw": "10"
           }
         },
         {
           "type": "VariableDeclarator",
-          "start": 14,
-          "end": 19,
+          "start": 16,
+          "end": 21,
           "id": {
             "type": "Identifier",
-            "start": 14,
-            "end": 15,
+            "start": 16,
+            "end": 17,
             "name": "y"
           },
           "init": {
             "type": "Identifier",
-            "start": 18,
-            "end": 19,
+            "start": 20,
+            "end": 21,
             "name": "x"
           }
         }
       ],
-      "kind": "var"
+      "kind": "const"
     }
   ],
   "sourceType": "script"

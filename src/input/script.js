@@ -1,2 +1,2 @@
-var x = 10,
+const x = 10,
   y = x;
