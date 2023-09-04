@@ -1,26 +1,32 @@
-import { parse } from 'acorn';
-import { readFile, writeFile } from 'fs/promises';
-import { resolve } from 'path';
+import * as acorn from 'acorn';
+import { readdir, readFile, writeFile } from 'fs/promises';
+import { basename, join } from 'path';
 
 async function main() {
   try {
-    // read input file
-    const inputFileName = 'script.js';
-    const inputFilePath = resolve('input', inputFileName);
-    const inputFileData = await readFile(inputFilePath, { encoding: 'utf8' });
+    const inputDirPath = join(__dirname, '..', 'input');
+    const outputDirPath = join(__dirname, '..', 'output');
 
-    // parsed result is AST (abstract syntax tree) object as specified by ESTree spec
-    const abstractSyntaxTree = parse(inputFileData, {
-      ecmaVersion: 2015,
-      sourceType: 'script',
-    });
+    const inputFilesNames = await readdir(inputDirPath);
 
-    // write output file
-    const outputFileName = 'script.ast';
-    const outputFilePath = resolve('output', outputFileName);
-    const outputFileData = JSON.stringify(abstractSyntaxTree, null, '  ') + '\n';
+    for (const inputFileName of inputFilesNames) {
+      // read input file
+      const inputFilePath = join(inputDirPath, inputFileName);
+      const inputFileData = await readFile(inputFilePath, { encoding: 'utf-8' });
 
-    await writeFile(outputFilePath, outputFileData, { encoding: 'utf8' });
+      // parsed result is AST object as specified by ESTree spec
+      const abstractSyntaxTree: acorn.Node = acorn.parse(inputFileData, {
+        ecmaVersion: 2015,
+        sourceType: 'script',
+      });
+
+      // write output file
+      const outputFileName = basename(inputFileName, '.js') + '.ast';
+      const outputFilePath = join(outputDirPath, outputFileName);
+      const outputFileData = JSON.stringify(abstractSyntaxTree, null, '  ') + '\n';
+
+      await writeFile(outputFilePath, outputFileData, { encoding: 'utf-8' });
+    }
   } catch (error) {
     console.error(error);
   }
